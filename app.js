@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+require('dotenv').config({ path: '.env'});
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
@@ -8,7 +9,7 @@ const userRoutes = require('./routes/user');
 
 const app = express();
 
-mongoose.connect('mongodb+srv://Greg:2WscEvwuA6yimhj@cluster0.x21bf.mongodb.net/Cluster0?retryWrites=true&w=majority',
+mongoose.connect(process.env.DATABASE,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true
